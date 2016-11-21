@@ -1,0 +1,11 @@
+<h1>{{data.summary}}</h1>
+
+<div id="list-container">
+    <div class="list-card {{item.status}}" ng-click="openLink(item.htmlLink);" ng-repeat="item in data.items" ng-if="item.creator || item.status != 'cancelled'">
+        <p ng-if="item.status == 'cancelled'" style="float:left;font-size:14px;color:rgb(153, 17, 0);margin:0">cancelled</p>
+        <h3>{{item.summary}}</h3>
+        <p>Créez Par : <a href="mailto:{{item.creator.email}}">{{item.creator.displayName || item.creator.email}}</a></p>
+        <p>{{(item.start.dateTime || item.start.date) | date: 'mediumDate'}} - {{(item.end.dateTime || item.end.date) | date: 'mediumDate'}}</p>
+        <p ng-if="item.start.dateTime && item.end.dateTime">{{(item.start.dateTime || item.start.date) | date: 'mediumTime'}} - {{(item.end.dateTime || item.end.date) | date: 'mediumTime'}}</p>
+    </div>
+</div>

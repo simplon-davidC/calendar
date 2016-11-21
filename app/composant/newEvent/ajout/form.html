@@ -1,0 +1,38 @@
+<div id="new-form" ng-hide="formOpened === false">
+    <div id="close-form-btn" x-close-form-btn></div>
+    <form name="newEventForm" ng-submit="submit();">
+        <div id="title-container">
+            <h3>Give a title to your event.</h3>
+            <label>Title</label>
+            <label>
+                <input ng-model="formData.title" required/>
+            </label>
+        </div>
+        <div id="creator-container">
+            <h3>Nous avons besoin de votre Nom et votre Email</h3>
+            <label>Nom</label>
+            <input type="text" ng-model="formData.creator.name" required/>
+            <label>Email</label>
+            <input type="email" ng-model="formData.creator.email" required/>
+        </div>
+        <div id="date-container">
+            <h3>Quand commence et fini-t-il?</h3>
+            <div id="start-container">
+                <label>Date de commencement</label>
+                <input type="date" placeholder="yyyy-MM-dd" ng-model="formData.startDate" required/>
+                <label>Heure de commencement (Optionel)</label>
+                <input type="time" placeholder="HH-mm-ss" ng-model="formData.startTime" />
+            </div>
+            <div id="end-container">
+                <label>Date de Fin</label>
+                <input type="date" placeholder="yyyy-MM-dd" ng-model="formData.endDate" required/>
+                <label>Heure de Fin (Optionnel)</label>
+                <input type="time" placeholder="HH-mm-ss" ng-model="formData.endTime" />
+            </div>
+
+        </div>
+
+        <button id="submit-btn" type="submit" ng-disabled="newEventForm.$invalid">Ajouter</button>
+    </form>
+
+</div>
